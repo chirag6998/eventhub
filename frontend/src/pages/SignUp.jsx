@@ -1,30 +1,23 @@
-import { Col, Row } from 'antd';
-import { Button, Form, Input, Radio } from 'antd';
+import { Col, Row } from "antd";
+import { Button, Form, Input, Radio } from "antd";
+import Navbar from "../components/navbar.jsx";
 
 function SignUp() {
-
-  const onFinish = values => {
-    console.log('Success:', values);
+  const onFinish = (values) => {
+    console.log("Success:", values);
   };
-  const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo);
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
 
   return (
     <div>
-      {/* Navbar */}
-      <nav className="bg-gray-100 py-4 shadow-sm">
-  <div className="container mx-auto">
-    <h1 className="text-center text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-600 tracking-widest uppercase">
-      EVENTHUB
-    </h1>
-  </div>
-</nav>
+      <Navbar>EVENTHUB</Navbar>
 
       <div className="ml-[300px] mr-[300px] mt-[30px] border-2 border-solid bg-gray-50">
         <Row>
           <Col span={8} offset={8}>
-            <div className="text-xl font-semibold tracking-wide text-gray-500 uppercase border-b-2 border-gray-200 pb-2 w-fit mx-auto mt-5 font-sans">
+            <div className="text-l font-semibold tracking-wide text-gray-500 uppercase border-b-2 border-gray-200 pb-2 w-fit mx-auto mt-5 font-sans">
               Create New Account
             </div>
           </Col>
@@ -40,7 +33,6 @@ function SignUp() {
                 Sign In
               </a>
             </div>
-
           </Col>
         </Row>
         <Form
@@ -56,7 +48,9 @@ function SignUp() {
           <Form.Item
             label="First Name"
             name="firstname"
-            rules={[{ required: true, message: 'Please input your First Name!' }]}
+            rules={[
+              { required: true, message: "Please input your First Name!" },
+            ]}
           >
             <Input />
           </Form.Item>
@@ -64,7 +58,9 @@ function SignUp() {
           <Form.Item
             label="Last Name"
             name="lastname"
-            rules={[{ required: true, message: 'Please input your Last Name!' }]}
+            rules={[
+              { required: true, message: "Please input your Last Name!" },
+            ]}
           >
             <Input />
           </Form.Item>
@@ -72,7 +68,10 @@ function SignUp() {
           <Form.Item
             label="Email"
             name="email"
-            rules={[{ required: true, message: "Please enter your Email!" }, { type: "email", message: "Please enter a valid Email!" }]}
+            rules={[
+              { required: true, message: "Please enter your Email!" },
+              { type: "email", message: "Please enter a valid Email!" },
+            ]}
           >
             <Input />
           </Form.Item>
@@ -80,7 +79,9 @@ function SignUp() {
           <Form.Item
             label="Phone"
             name="phone"
-            rules={[{ required: true, message: "Please enter your Phone Number!" }]}
+            rules={[
+              { required: true, message: "Please enter your Phone Number!" },
+            ]}
           >
             <Input />
           </Form.Item>
@@ -103,21 +104,23 @@ function SignUp() {
 
           <Form.Item
             label="Re-Enter Password"
-            name="password"
-            rules={[{ required: true, message: "Please re-enter your Password!" }]}
+            name="reenterpassword"
+            rules={[
+              { required: true, message: "Please re-enter your Password!" },
+            ]}
           >
             <Input.Password />
           </Form.Item>
 
           <Form.Item label="Account Type">
-          <Radio.Group>
-            <Radio value="As a user"> As a user </Radio>
-            <Radio value="As a company"> As a company </Radio>
-          </Radio.Group>
-        </Form.Item>
+            <Radio.Group>
+              <Radio value="As a user"> As a user </Radio>
+              <Radio value="As a company"> As a company </Radio>
+            </Radio.Group>
+          </Form.Item>
 
           <Form.Item label={null}>
-            <Button color='primary' variant="outlined" htmlType="submit">
+            <Button color="primary" variant="outlined" htmlType="submit">
               Submit
             </Button>
           </Form.Item>
